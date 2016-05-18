@@ -21,13 +21,7 @@ def query(query,getFromCache=False,queryName = None):
                      passwd=getPasswordToDatabase(),  # your password
                      db=getDatabaseName())        # name of the data base
 
-    cursor = conn.cursor()
-    cursor.execute(query)
-    records = cursor.fetchall()
-
-    df = pd.DataFrame(records)
-    if len(df) != 0:
-        df.columns = [desc[0] for desc in cursor.description]
+    df = pd.read_sql(query, con=conn)
 
     saveTableOnCache(df,stringify(query) if queryName==None else queryName)
     return df
