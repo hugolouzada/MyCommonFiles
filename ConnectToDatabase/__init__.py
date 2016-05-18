@@ -1,7 +1,3 @@
-#!/usr/bin/python
-import MySQLdb
-
-
 import MySQLdb
 
 db = MySQLdb.connect(host="localhost",    # your host, usually localhost
