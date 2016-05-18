@@ -1,14 +1,10 @@
 import pandas as pd
 
+from MyCommonFiles.BASE_DIR_COMMON_FILES import BASE_DIR_COMMON_FILES
+
+
 def getCredentials():
-    try:
-        data = pd.read_csv('../../credentialsToDatabase.config', header = None)
-    except:
-        try:
-            data = pd.read_csv('../credentialsToDatabase.config', header = None)
-        except:
-            data = pd.read_csv('credentialsToDatabase.config', header = None)
-    return data
+    return pd.read_csv(BASE_DIR_COMMON_FILES+'/credentialsToDatabaseConnection.config', header = None)
 
 def getUserToDatabase():
     return getCredentials()[0][0]
