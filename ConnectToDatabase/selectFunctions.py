@@ -1,4 +1,5 @@
-from ConnectToDatabase.query import query
+from MyCommonFiles.ConnectToDatabase.query import query
+
 
 def selectAll(table, getFromCache=False):
     queryString = "SELECT * FROM %s" % (table)

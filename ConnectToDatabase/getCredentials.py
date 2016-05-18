@@ -1,6 +1,6 @@
 import pandas as pd
 
-def getUserToDatabase():
+def getCredentials():
     try:
         data = pd.read_csv('../../credentialsToDatabase.config', header = None)
     except:
@@ -8,6 +8,13 @@ def getUserToDatabase():
             data = pd.read_csv('../credentialsToDatabase.config', header = None)
         except:
             data = pd.read_csv('credentialsToDatabase.config', header = None)
-    return data[0][0]
+    return data
 
-# print(getUserToDatabase())
+def getUserToDatabase():
+    return getCredentials()[0][0]
+
+def getPasswordToDatabase():
+    return getCredentials()[0][1]
+
+def getDatabaseName():
+    return getCredentials()[0][2]
